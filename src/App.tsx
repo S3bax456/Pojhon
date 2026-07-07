@@ -48,6 +48,7 @@ export default function App() {
   const [showSummary, setShowSummary] = useState(false);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [paraLlevar, setParaLlevar] = useState(false);
 
   // States for Birthday Form
   const [showBirthdayForm, setShowBirthdayForm] = useState(false);
@@ -157,11 +158,12 @@ export default function App() {
   };
 
   const calculateTotal = () => {
-    return cart.reduce((acc, item) => {
+    const baseTotal = cart.reduce((acc, item) => {
       const cleanPrice = item.precio.replace(/^[^\d]*/, '');
       const num = parseFloat(cleanPrice) || 0;
       return acc + num * item.cantidad;
     }, 0);
+    return baseTotal + (paraLlevar ? 1.00 : 0);
   };
 
   const sendToWhatsApp = () => {
@@ -170,6 +172,9 @@ export default function App() {
     cart.forEach(item => {
       message += `• ${item.cantidad} x ${item.nombre} (${item.precio})\n`;
     });
+    if (paraLlevar) {
+      message += `• 1 x Empaque para llevar (S/ 1.00)\n`;
+    }
     message += `\n*TOTAL: S/.${total.toFixed(2)}*`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
@@ -244,7 +249,7 @@ export default function App() {
   }
 
   return (
-    <div className="max-w-md mx-auto bg-white min-h-screen relative shadow-2xl overflow-hidden flex flex-col font-sans">
+    <div className="max-w-md mx-auto main-container min-h-screen relative shadow-2xl overflow-hidden flex flex-col font-sans">
       <header className="sticky top-0 bg-white/95 backdrop-blur-md z-50 px-5 py-2 flex justify-between items-center border-b border-gray-100">
         <div className="flex items-center">
           <img src="/logo.png" alt={RESTAURANTE_NAME} className="h-16 w-auto object-contain" />
@@ -348,8 +353,8 @@ export default function App() {
           <section key={cat.id} id={`cat-${cat.id}`} className="mb-10 scroll-mt-28">
             <div className="mb-5 pt-2">
               <div className="flex items-center gap-2 mb-1">
-                <Utensils className="text-primary wave-icon" size={22} />
-                <h3 className="font-category font-semibold text-primary text-[26px] leading-none tracking-wide category-underline">
+                <Utensils className="text-secondary wave-icon" size={22} />
+                <h3 className="font-category font-semibold text-white text-[26px] leading-none tracking-wide category-underline">
                   {cat.nombre}
                 </h3>
               </div>
@@ -419,16 +424,16 @@ export default function App() {
           </motion.button>
         </section>
 
-        <footer className="mt-8 pt-8 pb-10 border-t border-gray-200 flex flex-col items-center justify-center">
-          <p className="font-title text-2xl text-primary mb-4">{RESTAURANTE_NAME}</p>
+        <footer className="mt-8 pt-8 pb-10 border-t border-white/20 flex flex-col items-center justify-center">
+          <p className="font-title text-2xl text-secondary mb-4">{RESTAURANTE_NAME}</p>
           {LOGO_FOOTER_PATH ? (
             <img src={LOGO_FOOTER_PATH} alt={RESTAURANTE_NAME} className="w-32 h-32 object-contain mb-6" />
           ) : (
-            <div className="w-32 h-32 mb-6 rounded-2xl border border-dashed border-primary/30 bg-primary/5 flex items-center justify-center text-center p-2">
-              <span className="font-dish font-bold text-[10px] text-primary uppercase tracking-wide">aca va a imagen</span>
+            <div className="w-32 h-32 mb-6 rounded-2xl border border-dashed border-white/30 bg-white/5 flex items-center justify-center text-center p-2">
+              <span className="font-dish font-bold text-[10px] text-white uppercase tracking-wide">aca va a imagen</span>
             </div>
           )}
-          <p className="text-[11px] text-gray-400 font-medium">© 2026 Todos los derechos reservados.</p>
+          <p className="text-[11px] text-white/70 font-medium">© 2026 Todos los derechos reservados.</p>
         </footer>
 
         <div className="bg-dark py-6 flex flex-col items-center justify-center">
@@ -527,6 +532,21 @@ export default function App() {
                     </button>
                   </div>
                 ))}
+              </div>
+              <div className="flex items-center justify-between bg-gray-50 p-4 rounded-2xl mb-6 border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <input
+                    type="checkbox"
+                    id="para-llevar"
+                    checked={paraLlevar}
+                    onChange={(e) => setParaLlevar(e.target.checked)}
+                    className="w-5 h-5 accent-primary rounded cursor-pointer"
+                  />
+                  <label htmlFor="para-llevar" className="font-dish text-sm font-semibold text-dark cursor-pointer select-none">
+                    ¿Para llevar? (Adicional empaque)
+                  </label>
+                </div>
+                <span className="font-dish text-sm font-bold text-primary">S/ 1.00</span>
               </div>
               <div className="border-t border-dashed border-gray-200 pt-6 mb-8">
                 <div className="flex justify-between items-center">

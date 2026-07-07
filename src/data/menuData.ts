@@ -20,13 +20,13 @@ export const DEFAULT_MENU_DATA: Category[] = [
         nombre: "1/8 Pollo a la Brasa",
         descripcion: "Incluye papas fritas, ensalada y cremas.",
         precio: "S/ 9.00",
-        imagen: ""
+        imagen: "/pollo_1_8.jpg"
       },
       {
         nombre: "1/4 Pollo a la Brasa",
         descripcion: "Incluye papas fritas, ensalada y cremas.",
         precio: "S/ 11.00",
-        imagen: ""
+        imagen: "/pollo_1_4.jpg"
       }
     ]
   },
@@ -38,43 +38,43 @@ export const DEFAULT_MENU_DATA: Category[] = [
         nombre: "Combo 1 (1/8 de Pollo)",
         descripcion: "1/8 de Pollo a la brasa + papas fritas + ensalada + cremas + Gaseosa 600 ml.",
         precio: "S/ 12.00",
-        imagen: ""
+        imagen: "/combo_1.png"
       },
       {
         nombre: "Combo 2 (1/4 de Pollo)",
         descripcion: "1/4 de Pollo a la brasa + papas fritas + ensalada + cremas + Gaseosa 600 ml.",
         precio: "S/ 14.00",
-        imagen: ""
+        imagen: "/combo_2.png"
       },
       {
         nombre: "Combo 5 (1/4 de Pollo + Chaufa)",
         descripcion: "1/4 de Pollo a la brasa + papas fritas + ensalada + cremas + Arroz Chaufa + Gaseosa 600 ml.",
         precio: "S/ 16.00",
-        imagen: ""
+        imagen: "/combo_5.jpg"
       },
       {
         nombre: "Combo 4 (1/2 Pollo)",
         descripcion: "1/2 Pollo a la brasa + papas fritas + ensalada + cremas + Gaseosa 1 Litro.",
         precio: "S/ 28.00",
-        imagen: ""
+        imagen: "/combo_4.png"
       },
       {
         nombre: "Combo 3 (1/2 Pollo + Chaufa)",
         descripcion: "1/2 Pollo a la brasa + papas fritas + ensalada + cremas + Arroz Chaufa + Gaseosa 1 Litro.",
         precio: "S/ 38.00",
-        imagen: ""
+        imagen: "/combo_3.jpg"
       },
       {
         nombre: "Combo 7 (1 Pollo Entero)",
         descripcion: "1 Pollo entero a la brasa + papas fritas + ensalada + cremas + Gaseosa 1.5 Litros.",
         precio: "S/ 49.00",
-        imagen: ""
+        imagen: "/combo_7.jpg"
       },
       {
         nombre: "Combo 8 (1 Pollo Entero + Chaufa)",
         descripcion: "1 Pollo entero a la brasa + papas fritas + ensalada + cremas + Arroz Chaufa Familiar + Gaseosa 1.5 Litros.",
         precio: "S/ 60.00",
-        imagen: ""
+        imagen: "/combo_8.jpg"
       }
     ]
   },
@@ -103,7 +103,19 @@ export const DEFAULT_MENU_DATA: Category[] = [
       {
         nombre: "Saltado de Pollo",
         descripcion: "Incluye entrada de sopa wantan y chicha de cortesía.",
-        precio: "S/ 10.00",
+        precio: "S/ 11.00",
+        imagen: ""
+      },
+      {
+        nombre: "Tallarín Saltado",
+        descripcion: "Incluye entrada de sopa wantan y chicha de cortesía.",
+        precio: "S/ 14.00",
+        imagen: ""
+      },
+      {
+        nombre: "Brócoli Saltado",
+        descripcion: "Incluye entrada de sopa wantan y chicha de cortesía.",
+        precio: "S/ 11.00",
         imagen: ""
       },
       {
