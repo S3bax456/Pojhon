@@ -422,79 +422,79 @@ export const DEFAULT_MENU_DATA: Category[] = [
         nombre: "Pepsi 300 ml",
         descripcion: "Gaseosa presentación personal pequeña.",
         precio: "S/ 2.00",
-        imagen: ""
+        imagen: "/pepsi_300ml.png"
       },
       {
         nombre: "Pepsi 600 ml",
         descripcion: "Gaseosa presentación personal mediana.",
         precio: "S/ 2.50",
-        imagen: ""
+        imagen: "/pepsi_600ml.png"
       },
       {
         nombre: "Pepsi 1 Litro",
         descripcion: "Gaseosa presentación de 1 Litro.",
         precio: "S/ 5.00",
-        imagen: ""
+        imagen: "/pepsi_1l.png"
       },
       {
         nombre: "Pepsi 1 1/2 Litros",
         descripcion: "Gaseosa presentación familiar.",
         precio: "S/ 6.00",
-        imagen: ""
+        imagen: "/pepsi_1_5l.png"
       },
       {
         nombre: "Pepsi 3 Litros",
         descripcion: "Gaseosa presentación gigante.",
         precio: "S/ 9.00",
-        imagen: ""
+        imagen: "/pepsi_3l.png"
       },
       {
         nombre: "Inca Kola 300 ml",
         descripcion: "Gaseosa presentación personal pequeña.",
         precio: "S/ 2.00",
-        imagen: ""
+        imagen: "/inca_kola_300ml.png"
       },
       {
         nombre: "Inca Kola 600 ml",
         descripcion: "Gaseosa presentación personal mediana.",
         precio: "S/ 4.00",
-        imagen: ""
+        imagen: "/inca_kola_600ml.png"
       },
       {
         nombre: "Inca Kola Gordita",
         descripcion: "Gaseosa presentación personal gordita.",
         precio: "S/ 5.00",
-        imagen: ""
+        imagen: "/inca_kola_gordita.png"
       },
       {
         nombre: "Inca Kola 1 Litro",
         descripcion: "Gaseosa presentación de 1 Litro.",
         precio: "S/ 7.00",
-        imagen: ""
+        imagen: "/inca_kola_1l.png"
       },
       {
         nombre: "Inca Kola 1 1/2 Litros",
         descripcion: "Gaseosa presentación familiar.",
         precio: "S/ 9.00",
-        imagen: ""
+        imagen: "/inca_kola_1_5l.png"
       },
       {
         nombre: "Inca Kola 3 Litros",
         descripcion: "Gaseosa presentación gigante.",
         precio: "S/ 15.00",
-        imagen: ""
+        imagen: "/inca_kola_3l.png"
       },
       {
         nombre: "Agua Cielo",
         descripcion: "Botella de agua personal.",
         precio: "S/ 2.00",
-        imagen: ""
+        imagen: "/agua_cielo.png"
       },
       {
         nombre: "KR Personal",
         descripcion: "Gaseosa KR formato personal.",
         precio: "S/ 2.00",
-        imagen: ""
+        imagen: "/kr_personal.png"
       }
     ]
   },
@@ -506,13 +506,13 @@ export const DEFAULT_MENU_DATA: Category[] = [
         nombre: "Chicha Morada (Vaso)",
         descripcion: "Vaso de refrescante chicha morada.",
         precio: "S/ 1.50",
-        imagen: ""
+        imagen: "/chicha_vaso.png"
       },
       {
         nombre: "Chicha Morada (1 Litro)",
         descripcion: "Jarra de chicha morada natural.",
         precio: "S/ 6.00",
-        imagen: ""
+        imagen: "/chicha_1l.png"
       }
     ]
   },
@@ -524,19 +524,19 @@ export const DEFAULT_MENU_DATA: Category[] = [
         nombre: "Cerveza Pilsen",
         descripcion: "Cerveza rubia tradicional helada.",
         precio: "S/ 10.00",
-        imagen: ""
+        imagen: "/pilsen.png"
       },
       {
         nombre: "Cerveza Cusqueña",
         descripcion: "Cerveza premium peruana.",
         precio: "S/ 12.00",
-        imagen: ""
+        imagen: "/cusquena.png"
       },
       {
         nombre: "Cerveza Cristal",
         descripcion: "Cerveza rubia clásica helada.",
         precio: "S/ 10.00",
-        imagen: ""
+        imagen: "/cristal.png"
       }
     ]
   }
