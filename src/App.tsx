@@ -96,18 +96,24 @@ export default function App() {
           return;
         }
 
-        const formattedCategories: Category[] = cats.map(c => ({
-          id: c.nombre.toLowerCase().replace(/\s+/g, '-'),
-          nombre: c.nombre,
-          items: dishes
-            .filter(d => d.categoría === c.nombre)
-            .map(d => ({
-              nombre: d['nombre del plato'],
-              descripcion: d.descripción,
-              precio: d.precio,
-              imagen: LOCAL_IMAGES[d['nombre del plato']] || d['URL de imagen'] || null
-            }))
-        }));
+        const formattedCategories: Category[] = cats
+          .map(c => {
+            const catName = c.categoría || (c as any).nombre || '';
+            if (!catName) return null;
+            return {
+              id: catName.toLowerCase().replace(/\s+/g, '-'),
+              nombre: catName,
+              items: dishes
+                .filter(d => ((d.categoría || (d as any).categoria) === catName))
+                .map(d => ({
+                  nombre: d.nombre || (d as any)['nombre del plato'] || '',
+                  descripcion: d.descripción || (d as any).descripcion || '',
+                  precio: d.precio || '',
+                  imagen: LOCAL_IMAGES[d.nombre || (d as any)['nombre del plato']] || d['imagen URL'] || (d as any)['URL de imagen'] || null
+                }))
+            };
+          })
+          .filter(Boolean) as Category[];
 
         setCategories(formattedCategories);
         if (formattedCategories.length > 0) {
@@ -189,13 +195,13 @@ export default function App() {
   const handleBirthdaySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmittingBirthday(true);
-    const success = await submitSheetData('Cumpleaños', {
-      timestamp: new Date().toLocaleString('es-PE'),
-      nombre: birthdayData.nombre,
-      telefono: birthdayData.telefono,
-      fechaNacimiento: birthdayData.fechaNacimiento,
-      distrito: birthdayData.distrito,
-      correo: birthdayData.correo || 'No indicado'
+    const success = await submitSheetData('Fidelización', {
+      'Fecha': new Date().toLocaleString('es-PE'),
+      'Nombre': birthdayData.nombre,
+      'Teléfono': birthdayData.telefono,
+      'Fecha de Nacimiento': birthdayData.fechaNacimiento,
+      'Distrito': birthdayData.distrito,
+      'Correo Electrónico': birthdayData.correo || 'No indicado'
     });
     
     setIsSubmittingBirthday(false);
@@ -220,10 +226,10 @@ export default function App() {
 
     setIsSubmittingReview(true);
     const success = await submitSheetData('Reseñas', {
-      timestamp: new Date().toLocaleString('es-PE'),
-      estrellasMozo: reviewData.estrellasMozo,
-      estrellasComida: reviewData.estrellasComida,
-      comentario: reviewData.comentario || 'Sin comentarios'
+      'Fecha': new Date().toLocaleString('es-PE'),
+      'Estrellas Mozo': reviewData.estrellasMozo,
+      'Estrellas Comida': reviewData.estrellasComida,
+      'Comentario': reviewData.comentario || 'Sin comentarios'
     });
     
     setIsSubmittingReview(false);
